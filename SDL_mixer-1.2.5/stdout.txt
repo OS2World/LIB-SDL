@@ -1,0 +1,4 @@
+Compiled with SDL 1.2 or newer
+Compiled version: 1.2.7
+Linked version: 1.2.7
+This is a little endian machine.

@@ -1,0 +1,25 @@
+#=============================================================================
+#           This is a linker file to build SDLGFX.DLL for OS/2
+#
+#
+#=============================================================================
+
+system 386 LX DLL INITINSTANCE TERMINSTANCE
+name SDLGFX
+
+# Object files from \.
+
+file SDL_framerate.obj
+file SDL_gfxPrimitives.obj
+file SDL_imageFilter.obj
+file SDL_rotozoom.obj
+
+OPTION MAP=SDLGFX
+OPTION DESCRIPTION 'Simple DirectMedia Layer Gfx Library v2.0.13'
+OPTION ELIMINATE
+OPTION MANYAUTODATA
+OPTION OSNAME='OS/2 and eComStation'
+OPTION SHOWDEAD
+LIBPATH %os2tk%\lib
+LIBPATH %sdlhome%\src
+lib sdl

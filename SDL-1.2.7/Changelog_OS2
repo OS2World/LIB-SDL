@@ -1,0 +1,68 @@
+Version 1.2.7 - 2005-12-22  - Doodle
+ - Added support for proportional SDL windows.
+   There are two ways to have proportional (aspect-keeping) windows for
+   a given SDL application: Either set the SDL_USE_PROPORTIONAL_WINDOW
+   environment variable to something before starting the application
+   (e.g.: 
+    SET SDL_USE_PROPORTIONAL_WINDOW=1
+    dosbox.exe
+   )
+   or, if you have the HOME environment variable set, then SDL.DLL will
+   create a file in that directory called .sdl.proportionals, and you can
+   put there the name of executable files that will be automatically made
+   proportional.
+
+Version 1.2.7 - 2005-10-14  - Doodle
+ - Enabled Exception handler code in FSLib to be able to restore original
+   desktop video mode in case the application crashes.
+ - Added the missing FSLib_Uninitialize() call into SDL.
+   (The lack of it did not cause problems, but it's cleaner this way.)
+ - Fixed a mouse problem in Fullscreen mode where any mouse click
+   re-centered the mouse.
+
+Version 1.2.7 - 2005-10-09  - Doodle
+ - Implemented window icon support
+
+Version 1.2.7 - 2005-10-03  - Doodle
+ - Reworked semaphore support again
+ - Tuned thread priorities
+
+Version 1.2.7 - 2005-10-02  - Doodle
+ - Added support for custom mouse pointers
+ - Fixed WM_CLOSE processing: give a chance to SDL app to ask user...
+ - Added support for MMX-accelerated audio mixers
+ - Other small fixes
+
+Version 1.2.7 - 2005-09-12  - Doodle
+ - Small fixes for DosBox incorporated into public release
+ - Fixed semaphore support (SDL_syssem.c)
+ - Fixed FSLib to have good clipping in scaled window mode,
+   and to prevent occasional desktop freezes.
+
+Version 1.2.7 - 2004-09-08a - Caetano
+	- Improved joystick support (general verifications about hardware).
+	- Added support up to 8 buttons in 2 axes joysticks and 6 buttons in 3 axes joysticks.
+	- Added support to environment variable SDL_OS2_JOYSTICK to specify a joystick.
+	- Improved Joystick test to handle every type of joystick and display only relevant information.
+	- Merged with Doodle 2004-09-08
+	- Little tid up in README.OS2
+	- Added explanation about SDL_OS2_JOYSTICK environment variable on README.OS2
+
+Version 1.2.7 - 2004-09-07 - Caetano
+	- Merged with changes in headers for GCC compiling.
+	- Added Joystick support using basic IBM GAME$ support, allowing it to work with all joystick drivers since OS/2 2.1.
+	- Improved joystick detection (hacked!). OS/2 do not allow real joystick detection, so... 
+	- Modified makefile in test to compile "testjoystick". Anyway, it's useless, since it seems to cause a lot of trouble in OS/2 (because os video routines, not Joystick support).
+	- Created separated Joystick test program to test only joystick functions.
+	- Improved joystick auto-centering.
+	- Improved the coordinate correction routine to use two scale factors for each axis.
+
+Version 1.2.7 - 2004-07-05 - Caetano
+	- Corrected the time returned by status in CDROM support (it was incorrect)
+	- Added the testcdrom.c and corrected the linking directive (it was causing an error)
+
+Version 1.2.7 - 2004-07-02a - Caetano
+	- Corrected a little problem in a comment at SDL-1.2.7\test\torturethread.c, line 18 (missing */, nested comment)
+	- Added CDROM support to tree (SDL-1.2.7\src\cdrom\os2\SDL_syscdrom.c)
+	- Modified makefile (SDL-1.2.7\src\makefiles.wat and SDL-1.2.7\watcom.mif) to build with CDROM support
+	- Added the "extra" SDL_types.h forgotten in 2004-07-02 version.

@@ -1,0 +1,59 @@
+#=============================================================================
+#           This is a linker file to build SDLIMAGE.DLL for OS/2
+#
+#
+#=============================================================================
+
+system 386 LX DLL INITINSTANCE TERMINSTANCE
+name SDLTTF
+
+# Object files from \.
+
+file SDL_ttf
+
+# Object files from freetype-2.1.9\Objs
+file freetype-2.1.9\objs\autofit.obj
+file freetype-2.1.9\objs\autohint.obj
+file freetype-2.1.9\objs\ftapi.obj
+file freetype-2.1.9\objs\ftbase.obj
+file freetype-2.1.9\objs\ftbbox.obj
+file freetype-2.1.9\objs\ftbdf.obj
+file freetype-2.1.9\objs\ftdebug.obj
+file freetype-2.1.9\objs\ftglyph.obj
+file freetype-2.1.9\objs\ftinit.obj
+file freetype-2.1.9\objs\ftmm.obj
+file freetype-2.1.9\objs\ftpfr.obj
+file freetype-2.1.9\objs\ftstroke.obj
+file freetype-2.1.9\objs\ftsynth.obj
+file freetype-2.1.9\objs\ftsystem.obj
+file freetype-2.1.9\objs\fttype1.obj
+file freetype-2.1.9\objs\ftwinfnt.obj
+file freetype-2.1.9\objs\ftxf86.obj
+file freetype-2.1.9\objs\bdf.obj
+file freetype-2.1.9\objs\ftcache.obj
+file freetype-2.1.9\objs\cff.obj
+file freetype-2.1.9\objs\type1cid.obj
+file freetype-2.1.9\objs\ftgzip.obj
+file freetype-2.1.9\objs\ftlzw.obj
+file freetype-2.1.9\objs\pcf.obj
+file freetype-2.1.9\objs\pfr.obj
+file freetype-2.1.9\objs\psaux.obj
+file freetype-2.1.9\objs\pshinter.obj
+file freetype-2.1.9\objs\psnames.obj
+file freetype-2.1.9\objs\raster.obj
+file freetype-2.1.9\objs\sfnt.obj
+file freetype-2.1.9\objs\smooth.obj
+file freetype-2.1.9\objs\truetype.obj
+file freetype-2.1.9\objs\type1.obj
+file freetype-2.1.9\objs\type42.obj
+file freetype-2.1.9\objs\winfnt.obj
+
+OPTION MAP=SDLTTF
+OPTION DESCRIPTION 'Simple DirectMedia Layer TTF Library v2.0.6'
+OPTION ELIMINATE
+OPTION MANYAUTODATA
+OPTION OSNAME='OS/2 and eComStation'
+OPTION SHOWDEAD
+LIBPATH %os2tk%\lib
+LIBPATH %sdlhome%\src
+lib sdl
