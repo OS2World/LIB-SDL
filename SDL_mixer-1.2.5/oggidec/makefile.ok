@@ -1,0 +1,48 @@
+#-----------------------------------------------------------------------------
+# This section should be modified according to the target to build!
+#-----------------------------------------------------------------------------
+dllname=oggidec
+object_files=bitwise.obj block.obj codebook.obj floor0.obj floor1.obj framing.obj info.obj ivorbisfile_example.obj mapping0.obj mdct.obj registry.obj res012.obj sharedbook.obj synthesis.obj vorbisfile.obj window.obj
+os2toolkit_path=f:\os2tk45
+
+# Create debug build only if the NetGameClient is compiled with console output!
+debug_build=defined
+# The result can be LXLite'd too
+create_packed_dll=defined
+
+#-----------------------------------------------------------------------------
+# The next part is somewhat general, for creation of DLL files.
+#-----------------------------------------------------------------------------
+
+!ifdef debug_build
+debugflags = -d2 -dDEBUG_BUILD
+!else
+debugflags =
+!endif
+
+dllflags = -bd
+cflags = $(debugflags) -bg -bm -bt=OS2 -5 -fpi -i=$(os2toolkit_path)\h
+
+.before
+    set include=$(%watcom)\h\os2;$(%include)
+
+.extensions:
+.extensions: .dll .obj .c
+
+all : $(dllname).dll
+
+$(dllname).dll: $(object_files)
+
+.c.obj : .AUTODEPEND
+    wcc386 $[* $(dllflags) $(cflags)
+
+.obj.dll : .AUTODEPEND
+    wlink @$(dllname)
+!ifdef create_packed_dll
+    lxlite $(dllname).dll
+!endif
+clean : .SYMBOLIC
+        @if exist *.dll del *.dll
+        @if exist *.obj del *.obj
+        @if exist *.map del *.map
+        @if exist *.lst del *.lst
